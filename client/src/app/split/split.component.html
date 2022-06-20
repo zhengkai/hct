@@ -1,1 +1,12 @@
-<div *ngFor="let a of box" style="width: 100px; height: 100px; border: 1px solid gray; background-color: rgb({{ a[1] }}, {{ a[2] }}, {{ a[3] }}, 1)">{{ a | json }}</div>
+<h1>HCT demo</h1>
+
+<div class="box-split">
+<div *ngFor="let a of box" style="background-color: rgb({{ a[1] }}, {{ a[2] }}, {{ a[3] }})">&#160;</div>
+</div>
+
+<div class="split-button">
+<p>Split:<br><mat-slider min="3" max="30" value="10" (input)="changeSplit($event.value || 0)"></mat-slider></p>
+<p>Offset:<br><mat-slider min="0" max="100" step="0.1" value="0" (input)="changeOffset($event.value || 0)"></mat-slider></p>
+<p>Chroma:<br><mat-slider min="1" max="100" step="0.1" [value]="this.chroma" (input)="changeChroma($event.value || 0)"></mat-slider></p>
+<p>Tone:<br><mat-slider min="1" max="100" step="0.1" [value]="this.tone" (input)="changeTone($event.value || 0)"></mat-slider></p>
+</div>

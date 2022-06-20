@@ -9,16 +9,27 @@ import { Hct } from '@material/material-color-utilities';
 })
 export class SplitComponent {
 
-	box: any[] = [];
+	box: number[][] = [];
+	split = 10;
+
+	offset = 0;
+	chroma = 80;
+	tone = 50;
 
 	constructor() {
+		this.changeSplit(this.split);
+	}
 
-		const len = 10;
-
-		for (let i = 0; i < len; i++) {
-			const hue = 360 * i / len;
-			const color = Hct.from(hue, 40, 80);
-			console.log('hue', hue);
+	build() {
+		this.box.length = 0;
+		for (let i = 0; i < this.split; i++) {
+			let hue = 360 * (i + this.offset / 100) / this.split;
+			if (hue < 0) {
+				hue += 360;
+			} else if (hue >= 360) {
+				hue -= 360;
+			}
+			const color = Hct.from(hue, this.chroma, this.tone);
 			const argb = this.argb(color.toInt());
 			this.box.push(argb);
 		}
@@ -36,5 +47,27 @@ export class SplitComponent {
 			}
 		}
 		return re;
+	}
+
+	changeSplit(e: number) {
+		if (e !== this.box.length) {
+			this.split = e;
+			this.build();
+		}
+	}
+
+	changeOffset(e: number) {
+		this.offset = e;
+		this.build();
+	}
+
+	changeChroma(e: number) {
+		this.chroma = e;
+		this.build();
+	}
+
+	changeTone(e: number) {
+		this.tone = e;
+		this.build();
 	}
 }

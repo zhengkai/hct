@@ -1,0 +1,27 @@
+mat-slider {
+	width: 800px;
+}
+
+.box-split {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	width: calc(100% - 2rem);
+	margin: 5rem auto;
+	> div {
+		border: 1px solid #fff;
+		font-size: 12px;
+		height: 100px;
+		flex-grow: 1;
+		text-align: center;
+	}
+}
+
+h1 {
+	padding: 1rem 5rem 0;
+}
+
+.split-button {
+	max-width: 1000px;
+	margin: 0 auto;
+}
