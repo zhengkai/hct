@@ -21,7 +21,11 @@ h1 {
 	padding: 1rem 5rem 0;
 }
 
-.split-button {
+.split-button, .split-reference {
 	max-width: 1000px;
 	margin: 0 auto;
+}
+
+.split-reference {
+	margin-top: 5rem;
 }
