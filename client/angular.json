@@ -51,7 +51,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/style/index.scss"
             ],
             "scripts": []
           },
@@ -119,12 +119,24 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/style/index.scss"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }
