@@ -16,3 +16,6 @@ prod:
 	./dist/build.sh hct.9farm.com prod
 	ssh eirena 'mkdir -p /www/hct/public/'
 	rsync --partial -vzrtopg -e ssh ./dist/prod/ eirena:/www/hct/public/
+
+github:
+	./dist/build.sh zhengkai.github.io/hct github
