@@ -10,11 +10,11 @@ import { Hct } from '@material/material-color-utilities';
 export class SplitComponent {
 
 	box: number[][] = [];
-	split = 10;
+	split = 12;
 
 	offset = 0;
-	chroma = 80;
-	tone = 50;
+	chroma = 90;
+	tone = 60;
 
 	constructor() {
 		this.changeSplit(this.split);
@@ -30,24 +30,18 @@ export class SplitComponent {
 				hue -= 360;
 			}
 			const color = Hct.from(hue, this.chroma, this.tone);
-			const rgb = this.rgb(color.toInt());
-			this.box.push(rgb);
+			const n = color.toInt();
+			this.box.push([
+				n >> 16 & 255,
+				n >> 8 & 255,
+				n & 255,
+			]);
 		}
-	}
-
-	rgb(n: number) {
-		return [
-			n >> 16 & 255,
-			n >> 8 & 255,
-			n & 255,
-		];
 	}
 
 	changeSplit(e: number) {
-		if (e !== this.box.length) {
-			this.split = e;
-			this.build();
-		}
+		this.split = e;
+		this.build();
 	}
 
 	changeOffset(e: number) {

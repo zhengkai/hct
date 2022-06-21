@@ -1,21 +1,21 @@
 <h1>HCT demo</h1>
 
 <div class="box-split">
-<div *ngFor="let a of box" style="background-color: rgb({{ a[0] }}, {{ a[1] }}, {{ a[2] }})">&#160;</div>
+	<div *ngFor="let a of box" style="background-color: rgb({{ a[0] }}, {{ a[1] }}, {{ a[2] }})"><p>{{ a[0] }}<br>{{ a[1] }}<br>{{ a[2] }}</p></div>
 </div>
 
 <div class="split-button">
 	<p>Split: {{ split }}<br>
-		<mat-slider min="3" max="30" value="10" (input)="changeSplit($event.value || 0)"></mat-slider>
+		<mat-slider min="3" max="30" [value]="split" (input)="changeSplit($event.value || 0)"></mat-slider>
 	</p>
 	<p>Offset: {{ offset }}<br>
 		<mat-slider min="0" max="100" step="0.1" value="0" (input)="changeOffset($event.value || 0)"></mat-slider>
 	</p>
 	<p>Chroma: {{ chroma }}<br>
-		<mat-slider min="0" max="100" step="0.1" [value]="this.chroma" (input)="changeChroma($event.value || 0)"></mat-slider>
+		<mat-slider min="0" max="100" step="0.1" [value]="chroma" (input)="changeChroma($event.value || 0)"></mat-slider>
 	</p>
 	<p>Tone: {{ tone }}<br>
-		<mat-slider min="0" max="100" step="0.1" [value]="this.tone" (input)="changeTone($event.value || 0)"></mat-slider>
+		<mat-slider min="0" max="100" step="0.1" [value]="tone" (input)="changeTone($event.value || 0)"></mat-slider>
 	</p>
 </div>
 
