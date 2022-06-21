@@ -19,3 +19,6 @@ prod:
 
 github:
 	./dist/build.sh zhengkai.github.io/hct github
+	rm dist/github/*.br
+	rm dist/github/*.gz
+	rm -rf dist/github/assets
