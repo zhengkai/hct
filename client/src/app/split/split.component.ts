@@ -30,23 +30,17 @@ export class SplitComponent {
 				hue -= 360;
 			}
 			const color = Hct.from(hue, this.chroma, this.tone);
-			const argb = this.argb(color.toInt());
-			this.box.push(argb);
+			const rgb = this.rgb(color.toInt());
+			this.box.push(rgb);
 		}
 	}
 
-	argb(n: number) {
-		const key = [3, 2, 1, 0];
-		const re = Array(4);
-		for (const i of key) {
-			const x = n % 256;
-			re[i] = x;
-			if (i) {
-				n -= x;
-				n /= 256;
-			}
-		}
-		return re;
+	rgb(n: number) {
+		return [
+			n >> 16 & 255,
+			n >> 8 & 255,
+			n & 255,
+		];
 	}
 
 	changeSplit(e: number) {
