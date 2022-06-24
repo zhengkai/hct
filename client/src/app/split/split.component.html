@@ -3,10 +3,11 @@
 </div>
 
 <div class="box-split">
-	<div *ngFor="let a of box" style="background-color: rgb({{ a[0] }}, {{ a[1] }}, {{ a[2] }})"><p>{{ a[0] }}<br>{{ a[1] }}<br>{{ a[2] }}</p></div>
+	<div *ngFor="let c of box" (click)="select = c" style="background-color: rgb({{ c.rgb[0] }}, {{ c.rgb[1] }}, {{ c.rgb[2] }})"><p>{{ c.rgb[0] }}<br>{{ c.rgb[1] }}<br>{{ c.rgb[2] }}</p></div>
 </div>
 
 <div class="split-button">
+	<p>&#160;<span *ngIf="select">{{ select | json }}</span></p>
 	<p>Split: {{ split }}<br>
 		<mat-slider min="3" max="30" [value]="split" (input)="changeSplit($event.value || 0)"></mat-slider>
 	</p>
